@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brainrot Guard Review</title>
+    <link rel="stylesheet" href="/static/review.css">
+  </head>
+  <body>
+    <main class="review-console">
+      <section class="media-pane" aria-label="Media playback">
+        <header class="toolbar">
+          <select id="media-select" aria-label="Media item"></select>
+          <label class="toggle-row">
+            <input id="skip-recommended-toggle" type="checkbox">
+            <span>Hide skip</span>
+          </label>
+          <button id="analyze-button" type="button">Analyze</button>
+          <span id="status-pill" class="status-pill">pending</span>
+          <span id="analysis-state" class="analysis-state">idle</span>
+        </header>
+        <div id="media-stage" class="media-stage">
+          <video id="video-viewer" controls playsinline></video>
+          <audio id="audio-viewer" controls></audio>
+          <img id="image-viewer" alt="">
+          <pre id="text-viewer"></pre>
+        </div>
+        <div class="timeline-shell" aria-label="Prediction timeline">
+          <div id="timeline-track" class="timeline-track">
+            <div id="timeline-playhead" class="timeline-playhead"></div>
+          </div>
+        </div>
+      </section>
+      <aside class="review-pane" aria-label="Review console">
+        <section class="brain-panel">
+          <div class="panel-title">TRIBE-derived neural response proxy</div>
+          <div id="proxy-caveat" class="proxy-caveat">Model-predicted engagement/arousal response, not actual brain activity.</div>
+          <img id="brain-frame" alt="Model-predicted engagement/arousal response">
+          <div id="frame-state" class="frame-state">pending</div>
+          <dl id="brain-profile" class="brain-profile"></dl>
+        </section>
+        <section class="risk-panel">
+          <div class="panel-title">Risk summary</div>
+          <dl id="risk-summary"></dl>
+          <div id="warning-state" class="warning-state">allow</div>
+        </section>
+        <div class="feedback-row">
+          <button id="approve-button" type="button">Approve</button>
+          <button id="disapprove-button" type="button">Disapprove</button>
+          <button id="skip-button" type="button" disabled>Skip item</button>
+          <span id="feedback-state" class="feedback-state">idle</span>
+          <span id="skip-state" class="skip-state">skip inactive</span>
+        </div>
+      </aside>
+    </main>
+    <script src="/static/review.js"></script>
+  </body>
+</html>

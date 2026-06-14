@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "broki"
+version = "0.1.0"
+description = "BROKI: Brain Rot Killer — local research POC for TRIBE-derived media review."
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "pydantic",
+  "numpy",
+  "scikit-learn",
+  "scipy",
+  "ffprobe-python",
+  "mutagen",
+  "Pillow",
+  "httpx",
+  "pydantic-settings",
+  "python-multipart",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-asyncio",
+  "playwright",
+  "pytest-mock",
+  "ruff",
+]
+
+[project.scripts]
+broki = "broki.__main__:main"
+
+[tool.setuptools]
+packages = ["broki", "brainrot_guard"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+markers = [
+  "live_tribe: marks tests as requiring live TRIBE inference",
+  "live_vlm: marks tests as requiring live VLM inference",
+  "e2e_browser: marks tests as requiring browser automation",
+  "slow: marks tests as slow running",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
